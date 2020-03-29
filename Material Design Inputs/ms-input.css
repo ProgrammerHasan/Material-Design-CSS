@@ -1,0 +1,619 @@
+/*
+Style: Ms Input
+Author: msitxpress
+Author URI: https://msitxpress.com/
+Description: material design css3 inputs design.
+Version: 1.0
+*/
+* { box-sizing:border-box; }
+.mt-50{
+  margin-top: 50px;
+}
+/* basic stylings ------------------------------------------ */
+.container 		{
+  font-family:'Roboto';
+  width:900px;
+  margin:30px auto 0;
+  display:block;
+  background:#FFF;
+  padding:10px 50px 50px;
+}
+h2 		 {
+  text-align:center;
+  margin-bottom:50px;
+}
+h2 small {
+  font-weight:normal;
+  color:#888;
+  display:block;
+}
+
+/* start msx-input-01
+ ============================================================
+ */
+.msx-input-01{
+  position:relative;
+  margin-bottom:45px;
+}
+.msx-input-01 input {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:100%;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+.msx-input-01 input:focus{ outline:none; }
+/* LABEL ===== */
+.msx-input-01 label{
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.msx-input-01 input:focus ~ label, .msx-input-01 input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS ==== */
+.msx-input-01 .bar{ position:relative; display:block; width:100%; }
+.msx-input-01 .bar:before, .bar:after{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#5264AE;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.msx-input-01 .bar:before {
+  left:50%;
+}
+.msx-input-01 .bar:after {
+  right:50%;
+}
+/* active state */
+.msx-input-01 input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+/* HIGHLIGHTER ==*/
+.msx-input-01 .highlight {
+  position:absolute;
+  height:60%;
+  width:100%;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+/* active state */
+.msx-input-01 input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+/* ANIMATIONS ==== */
+@-webkit-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+/*End msx-input-01
+=================================================================
+*/
+
+/*Start msx-input-02
+=================================================================
+*/
+.msx-input-02 {
+  --pure-material-safari-helper1: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+  position: relative;
+  display: inline-block;
+  padding-top: 6px;
+  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Input, Textarea */
+.msx-input-02 > input,
+.msx-input-02 > textarea {
+  box-sizing: border-box;
+  margin: 0;
+  border: solid 1px; /* Safari */
+  border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+  border-top-color: transparent;
+  border-radius: 4px;
+  padding: 15px 13px 15px;
+  width: 100%;
+  height: inherit;
+  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+  background-color: transparent;
+  box-shadow: none; /* Firefox */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  caret-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+  transition: border 0.2s, box-shadow 0.2s;
+}
+/* Span */
+.msx-input-02 > input + span,
+.msx-input-02 > textarea + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+  width: 100%;
+  max-height: 100%;
+  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+  font-size: 75%;
+  line-height: 15px;
+  cursor: text;
+  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+/* Corners */
+.msx-input-02 > input + span::before,
+.msx-input-02 > input + span::after,
+.msx-input-02 > textarea + span::before,
+.msx-input-02 > textarea + span::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  margin-top: 6px;
+  border-top: solid 1px;
+  border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+  min-width: 10px;
+  height: 8px;
+  pointer-events: none;
+  box-shadow: inset 0 1px transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.msx-input-02 > input + span::before,
+.msx-input-02 > textarea + span::before {
+  margin-right: 4px;
+  border-left: solid 1px transparent;
+  border-radius: 4px 0;
+}
+.msx-input-02 > input + span::after,
+.msx-input-02 > textarea + span::after {
+  flex-grow: 1;
+  margin-left: 4px;
+  border-right: solid 1px transparent;
+  border-radius: 0 4px;
+}
+/* Hover */
+.msx-input-02:hover > input,
+.msx-input-02:hover > textarea {
+  border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+  border-top-color: transparent;
+}
+.msx-input-02:hover > input + span::before,
+.msx-input-02:hover > textarea + span::before,
+.msx-input-02:hover > input + span::after,
+.msx-input-02:hover > textarea + span::after {
+  border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+}
+.msx-input-02:hover > input:not(:focus):placeholder-shown,
+.msx-input-02:hover > textarea:not(:focus):placeholder-shown {
+  border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+}
+/* Placeholder-shown */
+.msx-input-02 > input:not(:focus):placeholder-shown,
+.msx-input-02 > textarea:not(:focus):placeholder-shown {
+  border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+}
+.msx-input-02 > input:not(:focus):placeholder-shown + span,
+.msx-input-02 > textarea:not(:focus):placeholder-shown + span {
+  font-size: inherit;
+  line-height: 68px;
+}
+
+.msx-input-02 > input:not(:focus):placeholder-shown + span::before,
+.msx-input-02 > textarea:not(:focus):placeholder-shown + span::before,
+.msx-input-02 > input:not(:focus):placeholder-shown + span::after,
+.msx-input-02 > textarea:not(:focus):placeholder-shown + span::after {
+  border-top-color: transparent;
+}
+
+/* Focus */
+.msx-input-02 > input:focus,
+.msx-input-02 > textarea:focus {
+  border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+  border-top-color: transparent;
+  box-shadow: inset 1px 0 var(--pure-material-safari-helper1), inset -1px 0 var(--pure-material-safari-helper1), inset 0 -1px var(--pure-material-safari-helper1);
+  outline: none;
+}
+
+.msx-input-02 > input:focus + span,
+.msx-input-02 > textarea:focus + span {
+  color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.msx-input-02 > input:focus + span::before,
+.msx-input-02 > input:focus + span::after,
+.msx-input-02 > textarea:focus + span::before,
+.msx-input-02 > textarea:focus + span::after {
+  border-top-color: var(--pure-material-safari-helper1) !important;
+  box-shadow: inset 0 1px var(--pure-material-safari-helper1);
+}
+
+/* Disabled */
+.msx-input-02 > input:disabled,
+.msx-input-02 > input:disabled + span,
+.msx-input-02 > textarea:disabled,
+.msx-input-02 > textarea:disabled + span {
+  border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+  border-top-color: transparent !important;
+  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+  pointer-events: none;
+}
+
+.msx-input-02 > input:disabled + span::before,
+.msx-input-02 > input:disabled + span::after,
+.msx-input-02 > textarea:disabled + span::before,
+.msx-input-02 > textarea:disabled + span::after {
+  border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+}
+
+.msx-input-02 > input:disabled:placeholder-shown,
+.msx-input-02 > input:disabled:placeholder-shown + span,
+.msx-input-02 > textarea:disabled:placeholder-shown,
+.msx-input-02 > textarea:disabled:placeholder-shown + span {
+  border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+}
+
+.msx-input-02 > input:disabled:placeholder-shown + span::before,
+.msx-input-02 > input:disabled:placeholder-shown + span::after,
+.msx-input-02 > textarea:disabled:placeholder-shown + span::before,
+.msx-input-02 > textarea:disabled:placeholder-shown + span::after {
+  border-top-color: transparent !important;
+}
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) {
+    .msx-input-02 > input,
+    .msx-input-02 > input + span,
+    .msx-input-02 > textarea,
+    .msx-input-02 > textarea + span,
+    .msx-input-02 > input + span::before,
+    .msx-input-02 > input + span::after,
+    .msx-input-02 > textarea + span::before,
+    .msx-input-02 > textarea + span::after {
+      transition-duration: 0.1s;
+    }
+  }
+}
+/*end msx-input-02
+=================================================================
+*/
+
+
+/*Start msx-input-03
+=================================================================
+*/
+.msx-input-03 input:focus ~ label, .msx-input-03 textarea:focus ~ label, .msx-input-03 input:valid ~ label, .msx-input-03 textarea:valid ~ label {
+  font-size: 0.75em;
+  color: #8e44ad;
+  top: -2.25rem;
+  -webkit-transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+}
+
+.msx-input-03{
+  float: left;
+  width: 33.3333%;
+  margin: 2rem 0 1rem;
+  position: relative;
+}
+.msx-input-03 label {
+  color: #999;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
+  transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
+  pointer-events: none;
+}
+.msx-input-03 .wide {
+  width: 100%;
+}
+
+.msx-input-03 input, .msx-input-03 textarea {
+  padding: 1rem 1rem;
+  border: 0px;
+  width: 100%;
+  font-size: 1rem;
+}
+.msx-input-03 input ~ span, .msx-input-03 textarea ~ span {
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #8e44ad;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+}
+.msx-input-03 input:focus, .msx-input-03 textarea:focus {
+  outline: 0;
+}
+.msx-input-03 input:focus ~ span, .msx-input-03 textarea:focus ~ span {
+  width: 100%;
+  -webkit-transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+}
+
+.msx-input-03 textarea {
+  width: 100%;
+  min-height: 15em;
+}
+
+/*end msx-input-03
+=================================================================
+*/
+
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+.row{float: left; width: 100%; padding: 20px 0 50px;}
+h2{text-align: center; color: #2079df; font-size: 28px; float: left; width: 100%; margin: 30px 0; position: relative; line-height: 58px; font-weight: 400;}
+h2:before{content: ""; position: absolute; left: 50%; bottom: 0; width: 100px; height: 2px; background-color: #2079df; margin-left: -50px;}
+
+/*start msx-effects -04
+=================================================================
+*/
+:focus{outline: none;}
+
+.col-3{float: left; width: 27.33%; margin: 40px 3%; position: relative;} /* necessary to give position: relative to parent. */
+input[type="text"]{font: 15px/24px "Lato", Arial, sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+
+.msx-effect-1,
+.msx-effect-2,
+.msx-effect-3{border: 0; padding: 7px 0; border-bottom: 1px solid #ccc;}
+
+.msx-effect-1 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
+.msx-effect-1:focus ~ .focus-border{width: 100%; transition: 0.4s;}
+
+.msx-effect-2 ~ .focus-border{position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
+.msx-effect-2:focus ~ .focus-border{width: 100%; transition: 0.4s; left: 0;}
+
+.msx-effect-3 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; z-index: 99;}
+.msx-effect-3 ~ .focus-border:before,
+.msx-effect-3 ~ .focus-border:after{content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 100%; background-color: #3399FF; transition: 0.4s;}
+.msx-effect-3 ~ .focus-border:after{left: auto; right: 0;}
+.msx-effect-3:focus ~ .focus-border:before,
+.msx-effect-3:focus ~ .focus-border:after{width: 50%; transition: 0.4s;}
+
+.msx-effect-4,
+.msx-effect-5,
+.msx-effect-6{border: 0; padding: 5px 0 7px; border: 1px solid transparent; border-bottom-color: #ccc; transition: 0.4s;}
+
+.msx-effect-4:focus,
+.msx-effect-5:focus,
+.msx-effect-6:focus{padding: 5px 14px 7px; transition: 0.4s;}
+
+.msx-effect-4 ~ .focus-border{position: absolute; height: 0; bottom: 0; left: 0; width: 100%; transition: 0.4s; z-index: -1;}
+.msx-effect-4:focus ~ .focus-border{transition: 0.4s; height: 36px; border: 2px solid #3399FF; z-index: 1;}
+
+.msx-effect-5 ~ .focus-border{position: absolute; height: 36px; bottom: 0; left: 0; width: 0; transition: 0.4s;}
+.msx-effect-5:focus ~ .focus-border{width: 100%; transition: 0.4s; border: 2px solid #3399FF;}
+
+.msx-effect-6 ~ .focus-border{position: absolute; height: 36px; bottom: 0; right: 0; width: 0; transition: 0.4s;}
+.msx-effect-6:focus ~ .focus-border{width: 100%; transition: 0.4s; border: 2px solid #3399FF;}
+
+.msx-effect-7,
+.msx-effect-8,
+.msx-effect-9{border: 1px solid #ccc; padding: 7px 14px 9px; transition: 0.4s;}
+
+.msx-effect-7 ~ .focus-border:before,
+.msx-effect-7 ~ .focus-border:after{content: ""; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
+.msx-effect-7 ~ .focus-border:after{top: auto; bottom: 0;}
+.msx-effect-7 ~ .focus-border i:before,
+.msx-effect-7 ~ .focus-border i:after{content: ""; position: absolute; top: 50%; left: 0; width: 2px; height: 0; background-color: #3399FF; transition: 0.6s;}
+.msx-effect-7 ~ .focus-border i:after{left: auto; right: 0;}
+.msx-effect-7:focus ~ .focus-border:before,
+.msx-effect-7:focus ~ .focus-border:after{left: 0; width: 100%; transition: 0.4s;}
+.msx-effect-7:focus ~ .focus-border i:before,
+.msx-effect-7:focus ~ .focus-border i:after{top: 0; height: 100%; transition: 0.6s;}
+
+.msx-effect-8 ~ .focus-border:before,
+.msx-effect-8 ~ .focus-border:after{content: ""; position: absolute; top: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.3s;}
+.msx-effect-8 ~ .focus-border:after{top: auto; bottom: 0; left: auto; right: 0;}
+.msx-effect-8 ~ .focus-border i:before,
+.msx-effect-8 ~ .focus-border i:after{content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 0; background-color: #3399FF; transition: 0.4s;}
+.msx-effect-8 ~ .focus-border i:after{left: auto; right: 0; top: auto; bottom: 0;}
+.msx-effect-8:focus ~ .focus-border:before,
+.msx-effect-8:focus ~ .focus-border:after{width: 100%; transition: 0.3s;}
+.msx-effect-8:focus ~ .focus-border i:before,
+.msx-effect-8:focus ~ .focus-border i:after{height: 100%; transition: 0.4s;}
+
+.msx-effect-9 ~ .focus-border:before,
+.msx-effect-9 ~ .focus-border:after{content: ""; position: absolute; top: 0; right: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.2s; transition-delay: 0.2s;}
+.msx-effect-9 ~ .focus-border:after{top: auto; bottom: 0; right: auto; left: 0; transition-delay: 0.6s;}
+.msx-effect-9 ~ .focus-border i:before,
+.msx-effect-9 ~ .focus-border i:after{content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 0; background-color: #3399FF; transition: 0.2s;}
+.msx-effect-9 ~ .focus-border i:after{left: auto; right: 0; top: auto; bottom: 0; transition-delay: 0.4s;}
+.msx-effect-9:focus ~ .focus-border:before,
+.msx-effect-9:focus ~ .focus-border:after{width: 100%; transition: 0.2s; transition-delay: 0.6s;}
+.msx-effect-9:focus ~ .focus-border:after{transition-delay: 0.2s;}
+.msx-effect-9:focus ~ .focus-border i:before,
+.msx-effect-9:focus ~ .focus-border i:after{height: 100%; transition: 0.2s;}
+.msx-effect-9:focus ~ .focus-border i:after{transition-delay: 0.4s;}
+
+.msx-effect-10,
+.msx-effect-11,
+.msx-effect-12,
+.msx-effect-13,
+.msx-effect-14,
+.msx-effect-15{border: 0; padding: 7px 15px; border: 1px solid #ccc; position: relative; background: transparent;}
+
+.msx-effect-10 ~ .focus-bg{position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: #ededed; opacity: 0; transition: 0.5s; z-index: -1;}
+.msx-effect-10:focus ~ .focus-bg{transition: 0.5s; opacity: 1;}
+
+.msx-effect-11 ~ .focus-bg{position: absolute; left: 0; top: 0; width: 0; height: 100%; background-color: #ededed; transition: 0.3s; z-index: -1;}
+.msx-effect-11:focus ~ .focus-bg{transition: 0.3s; width: 100%;}
+
+.msx-effect-12 ~ .focus-bg{position: absolute; left: 50%; top: 0; width: 0; height: 100%; background-color: #ededed; transition: 0.3s; z-index: -1;}
+.msx-effect-12:focus ~ .focus-bg{transition: 0.3s; width: 100%; left: 0;}
+
+.msx-effect-13 ~ .focus-bg:before,
+.msx-effect-13 ~ .focus-bg:after{content: ""; position: absolute; left: 0; top: 0; width: 0; height: 100%; background-color: #ededed; transition: 0.3s; z-index: -1;}
+.msx-effect-13:focus ~ .focus-bg:before{transition: 0.3s; width: 50%;}
+.msx-effect-13 ~ .focus-bg:after{left: auto; right: 0;}
+.msx-effect-13:focus ~ .focus-bg:after{transition: 0.3s; width: 50%;}
+
+.msx-effect-14 ~ .focus-bg:before,
+.msx-effect-14 ~ .focus-bg:after{content: ""; position: absolute; left: 0; top: 0; width: 0; height: 0; background-color: #ededed; transition: 0.3s; z-index: -1;}
+.msx-effect-14:focus ~ .focus-bg:before{transition: 0.3s; width: 50%; height: 100%;}
+.msx-effect-14 ~ .focus-bg:after{left: auto; right: 0; top: auto; bottom: 0;}
+.msx-effect-14:focus ~ .focus-bg:after{transition: 0.3s; width: 50%; height: 100%;}
+
+.msx-effect-15 ~ .focus-bg:before,
+.msx-effect-15 ~ .focus-bg:after{content: ""; position: absolute; left: 50%; top: 50%; width: 0; height: 0; background-color: #ededed; transition: 0.3s; z-index: -1;}
+.msx-effect-15:focus ~ .focus-bg:before{transition: 0.3s; width: 50%; left: 0; top: 0; height: 100%;}
+.msx-effect-15 ~ .focus-bg:after{left: auto; right: 50%; top: auto; bottom: 50%;}
+.msx-effect-15:focus ~ .focus-bg:after{transition: 0.3s; width: 50%; height: 100%; bottom: 0; right: 0;}
+
+
+.msx-effect-16,
+.msx-effect-17,
+.msx-effect-18{border: 0; padding: 4px 0; border-bottom: 1px solid #ccc; background-color: transparent;}
+
+.msx-effect-16 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
+.msx-effect-16:focus ~ .focus-border,
+.has-content.msx-effect-16 ~ .focus-border{width: 100%; transition: 0.4s;}
+.msx-effect-16 ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.msx-effect-16:focus ~ label, .has-content.msx-effect-16 ~ label{top: -16px; font-size: 12px; color: #3399FF; transition: 0.3s;}
+
+.msx-effect-17 ~ .focus-border{position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
+.msx-effect-17:focus ~ .focus-border,
+.has-content.msx-effect-17 ~ .focus-border{width: 100%; transition: 0.4s; left: 0;}
+.msx-effect-17 ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.msx-effect-17:focus ~ label, .has-content.msx-effect-17 ~ label{top: -16px; font-size: 12px; color: #3399FF; transition: 0.3s;}
+
+.msx-effect-18 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; z-index: 99;}
+.msx-effect-18 ~ .focus-border:before,
+.msx-effect-18 ~ .focus-border:after{content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 100%; background-color: #3399FF; transition: 0.4s;}
+.msx-effect-18 ~ .focus-border:after{left: auto; right: 0;}
+.msx-effect-18:focus ~ .focus-border:before,
+.msx-effect-18:focus ~ .focus-border:after,
+.has-content.msx-effect-18 ~ .focus-border:before,
+.has-content.msx-effect-18 ~ .focus-border:after{width: 50%; transition: 0.4s;}
+.msx-effect-18 ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.msx-effect-18:focus ~ label, .has-content.msx-effect-18 ~ label{top: -16px; font-size: 12px; color: #3399FF; transition: 0.3s;}
+
+.msx-effect-19,
+.msx-effect-20,
+.msx-effect-21{border: 1px solid #ccc; padding: 7px 14px; transition: 0.4s; background: transparent;}
+
+.msx-effect-19 ~ .focus-border:before,
+.msx-effect-19 ~ .focus-border:after{content: ""; position: absolute; top: -1px; left: 50%; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
+.msx-effect-19 ~ .focus-border:after{top: auto; bottom: 0;}
+.msx-effect-19 ~ .focus-border i:before,
+.msx-effect-19 ~ .focus-border i:after{content: ""; position: absolute; top: 50%; left: 0; width: 2px; height: 0; background-color: #3399FF; transition: 0.6s;}
+.msx-effect-19 ~ .focus-border i:after{left: auto; right: 0;}
+.msx-effect-19:focus ~ .focus-border:before,
+.msx-effect-19:focus ~ .focus-border:after,
+.has-content.msx-effect-19 ~ .focus-border:before,
+.has-content.msx-effect-19 ~ .focus-border:after{left: 0; width: 100%; transition: 0.4s;}
+.msx-effect-19:focus ~ .focus-border i:before,
+.msx-effect-19:focus ~ .focus-border i:after,
+.has-content.msx-effect-19 ~ .focus-border i:before,
+.has-content.msx-effect-19 ~ .focus-border i:after{top: -1px; height: 100%; transition: 0.6s;}
+.msx-effect-19 ~ label{position: absolute; left: 14px; width: 100%; top: 10px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.msx-effect-19:focus ~ label, .has-content.msx-effect-19 ~ label{top: -18px; left: 0; font-size: 12px; color: #3399FF; transition: 0.3s;}
+
+.msx-effect-20 ~ .focus-border:before,
+.msx-effect-20 ~ .focus-border:after{content: ""; position: absolute; top: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.3s;}
+.msx-effect-20 ~ .focus-border:after{top: auto; bottom: 0; left: auto; right: 0;}
+.msx-effect-20 ~ .focus-border i:before,
+.msx-effect-20 ~ .focus-border i:after{content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 0; background-color: #3399FF; transition: 0.4s;}
+.msx-effect-20 ~ .focus-border i:after{left: auto; right: 0; top: auto; bottom: 0;}
+.msx-effect-20:focus ~ .focus-border:before,
+.msx-effect-20:focus ~ .focus-border:after,
+.has-content.msx-effect-20 ~ .focus-border:before,
+.has-content.msx-effect-20 ~ .focus-border:after{width: 100%; transition: 0.3s;}
+.msx-effect-20:focus ~ .focus-border i:before,
+.msx-effect-20:focus ~ .focus-border i:after,
+.has-content.msx-effect-20 ~ .focus-border i:before,
+.has-content.msx-effect-20 ~ .focus-border i:after{height: 100%; transition: 0.4s;}
+.msx-effect-20 ~ label{position: absolute; left: 14px; width: 100%; top: 10px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.msx-effect-20:focus ~ label, .has-content.msx-effect-20 ~ label{top: -18px; left: 0; font-size: 12px; color: #3399FF; transition: 0.3s;}
+
+.msx-effect-21 ~ .focus-border:before,
+.msx-effect-21 ~ .focus-border:after{content: ""; position: absolute; top: 0; right: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.2s; transition-delay: 0.2s;}
+.msx-effect-21 ~ .focus-border:after{top: auto; bottom: 0; right: auto; left: 0; transition-delay: 0.6s;}
+.msx-effect-21 ~ .focus-border i:before,
+.msx-effect-21 ~ .focus-border i:after{content: ""; position: absolute; top: 0; left: 0; width: 2px; height: 0; background-color: #3399FF; transition: 0.2s;}
+.msx-effect-21 ~ .focus-border i:after{left: auto; right: 0; top: auto; bottom: 0; transition-delay: 0.4s;}
+.msx-effect-21:focus ~ .focus-border:before,
+.msx-effect-21:focus ~ .focus-border:after,
+.has-content.msx-effect-21 ~ .focus-border:before,
+.has-content.msx-effect-21 ~ .focus-border:after{width: 100%; transition: 0.2s; transition-delay: 0.6s;}
+.msx-effect-21:focus ~ .focus-border:after,
+.has-content.msx-effect-21 ~ .focus-border:after{transition-delay: 0.2s;}
+.msx-effect-21:focus ~ .focus-border i:before,
+.msx-effect-21:focus ~ .focus-border i:after,
+.has-content.msx-effect-21 ~ .focus-border i:before,
+.has-content.msx-effect-21 ~ .focus-border i:after{height: 100%; transition: 0.2s;}
+.msx-effect-21:focus ~ .focus-border i:after,
+.has-conten.msx-effect-21 ~ .focus-border i:after{transition-delay: 0.4s;}
+.msx-effect-21 ~ label{position: absolute; left: 14px; width: 100%; top: 10px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.msx-effect-21:focus ~ label, .has-content.msx-effect-21 ~ label{top: -18px; left: 0; font-size: 12px; color: #3399FF; transition: 0.3s;}
+
+.msx-effect-22,
+.msx-effect-23,
+.msx-effect-24{border: 0; padding: 7px 15px; border: 1px solid #ccc; position: relative; background: transparent;}
+
+.msx-effect-22 ~ .focus-bg{position: absolute; left: 0; top: 0; width: 0; height: 100%; background-color: transparent; transition: 0.4s; z-index: -1;}
+.msx-effect-22:focus ~ .focus-bg,
+.has-content.msx-effect-22 ~ .focus-bg{transition: 0.4s; width: 100%; background-color: #ededed;}
+.msx-effect-22 ~ label{position: absolute; left: 14px; width: 100%; top: 10px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.msx-effect-22:focus ~ label, .has-content.msx-effect-22 ~ label{top: -18px; left: 0; font-size: 12px; color: #333; transition: 0.3s;}
+
+.msx-effect-23 ~ .focus-bg:before,
+.msx-effect-23 ~ .focus-bg:after{content: ""; position: absolute; left: 0; top: 0; width: 0; height: 0; background-color: #ededed; transition: 0.3s; z-index: -1;}
+.msx-effect-23:focus ~ .focus-bg:before,
+.has-content.msx-effect-23 ~ .focus-bg:before{transition: 0.3s; width: 50%; height: 100%;}
+.msx-effect-23 ~ .focus-bg:after{left: auto; right: 0; top: auto; bottom: 0;}
+.msx-effect-23:focus ~ .focus-bg:after,
+.has-content.msx-effect-23 ~ .focus-bg:after{transition: 0.3s; width: 50%; height: 100%;}
+.msx-effect-23 ~ label{position: absolute; left: 14px; width: 100%; top: 10px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.msx-effect-23:focus ~ label, .has-content.msx-effect-23 ~ label{top: -18px; left: 0; font-size: 12px; color: #333; transition: 0.3s;}
+
+.msx-effect-24 ~ .focus-bg:before,
+.msx-effect-24 ~ .focus-bg:after{content: ""; position: absolute; left: 50%; top: 50%; width: 0; height: 0; background-color: #ededed; transition: 0.3s; z-index: -1;}
+.msx-effect-24:focus ~ .focus-bg:before,
+.has-content.msx-effect-24 ~ .focus-bg:before{transition: 0.3s; width: 50%; left: 0; top: 0; height: 100%;}
+.msx-effect-24 ~ .focus-bg:after{left: auto; right: 50%; top: auto; bottom: 50%;}
+.msx-effect-24:focus ~ .focus-bg:after,
+.has-content.msx-effect-24 ~ .focus-bg:after{transition: 0.3s; width: 50%; height: 100%; bottom: 0; right: 0;}
+.msx-effect-24 ~ label{position: absolute; left: 14px; width: 100%; top: 10px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.msx-effect-24:focus ~ label, .has-content.msx-effect-24 ~ label{top: -18px; left: 0; font-size: 12px; color: #333; transition: 0.3s;}
+/*= input focus effects css End
+=============================== */
